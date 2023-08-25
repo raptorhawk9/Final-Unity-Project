@@ -9,6 +9,8 @@ public class Cannon : MonoBehaviour
     private GameObject firePoint;
 
     private Vector3 offset = new Vector3(0f, 5.141f, -9.158f);
+
+    private float fireCountDown = 2;
     
     // Start is called before the first frame update
     void Awake()
@@ -19,14 +21,23 @@ public class Cannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fire();
+        CheckFire();
     }
 
     private void Fire()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        Instantiate(ballPrefab, firePoint.transform.position, firePoint.transform.rotation);
+    }
+
+    private void CheckFire()
+    {
+        fireCountDown += Time.deltaTime;
+
+        if (fireCountDown >= 2 && Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(ballPrefab, firePoint.transform.position, firePoint.transform.rotation);
+            Fire();
+
+            fireCountDown = 0;
         }
     }
 }
