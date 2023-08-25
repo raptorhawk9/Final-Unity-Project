@@ -7,6 +7,8 @@ public class Cannon : MonoBehaviour
     [SerializeField] private GameObject ballPrefab;
 
     private GameObject firePoint;
+    private GameObject cannonBase;
+    private GameObject cannon;
 
     private Vector3 offset = new Vector3(0f, 5.141f, -9.158f);
 
@@ -16,12 +18,16 @@ public class Cannon : MonoBehaviour
     void Awake()
     {
         firePoint = GameObject.Find("FirePoint");
+        cannonBase = GameObject.Find("Base");
+        cannon = GameObject.Find("Cannon");
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckFire();
+
+        Rotate();
     }
 
     private void Fire()
@@ -33,11 +39,31 @@ public class Cannon : MonoBehaviour
     {
         fireCountDown += Time.deltaTime;
 
-        if (fireCountDown >= 2 && Input.GetKeyDown(KeyCode.Space))
+        if (fireCountDown >= 2 && Input.GetKey(KeyCode.Space))
         {
             Fire();
 
             fireCountDown = 0;
         }
+    }
+
+    private void Rotate()
+    {
+        VerticalRotate();
+        HorizontalRotate();
+    }
+
+    private void VerticalRotate()
+    {
+        float verticalInput = Input.GetAxis("Vertical");
+        
+        cannonBase.transform.Rotate(20 * verticalInput * Time.deltaTime, 0, 0);
+    }
+
+    private void HorizontalRotate()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        cannon.transform.Rotate(0, 20 * horizontalInput * Time.deltaTime, 0);
     }
 }
