@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class SmallTarget : Target
 {
-    
+    private int pointsToBeGiven = 10;
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        GivePoints(other, pointsToBeGiven);
+    }
 }

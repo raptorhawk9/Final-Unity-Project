@@ -17,6 +17,7 @@ public class Cannon : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        GameManager.Instance.score = 0;
         firePoint = GameObject.Find("FirePoint");
         cannonBase = GameObject.Find("Base");
         cannon = GameObject.Find("Cannon");
@@ -62,11 +63,11 @@ public class Cannon : MonoBehaviour
 
         if (cannonBase.transform.rotation.eulerAngles.x < 330 && cannonBase.transform.rotation.eulerAngles.x > 320)
         {
-            cannonBase.transform.Rotate(-20 * verticalInput * Time.deltaTime, 0, 0);
+            cannonBase.transform.Rotate(-20.1f * verticalInput * Time.deltaTime, 0, 0);
         }
         else if (cannonBase.transform.rotation.eulerAngles.x > 50 && cannonBase.transform.rotation.eulerAngles.x < 60)
         {
-            cannonBase.transform.Rotate(-20 * verticalInput * Time.deltaTime, 0, 0);
+            cannonBase.transform.Rotate(-20.1f * verticalInput * Time.deltaTime, 0, 0);
         }
     }
 

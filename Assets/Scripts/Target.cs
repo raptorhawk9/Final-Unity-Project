@@ -47,13 +47,16 @@ public class Target : MonoBehaviour
         return (Random.value > 0.5f);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        GivePoints(other);
+        GivePoints(other, 1);
     }
 
-    protected virtual void GivePoints(Collider other)
+    protected virtual void GivePoints(Collider other, int points)
     {
-        Debug.Log("Points!");
+        if (other.name == "CannonBall(Clone)")
+        {
+            GameManager.Instance.score += points;
+        }
     }
 }
