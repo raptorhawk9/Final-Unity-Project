@@ -9,10 +9,10 @@ public class Target : MonoBehaviour
     private bool isMovingRight;
     private float moveSpeed;
     private float moveMin = 0.01f;
-    private float moveMax = 0.2f;
+    private float moveMax = 0.07f;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         StartMove(); //ABSTRACTION
     }
@@ -45,5 +45,15 @@ public class Target : MonoBehaviour
     private bool RandomBool()
     {
         return (Random.value > 0.5f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GivePoints(other);
+    }
+
+    protected virtual void GivePoints(Collider other)
+    {
+        Debug.Log("Points!");
     }
 }

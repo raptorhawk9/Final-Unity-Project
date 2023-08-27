@@ -149,7 +149,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408735490}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.7051, y: 5.7051, z: 5.7050996}
   m_Children:
@@ -645,8 +645,8 @@ GameObject:
   - component: {fileID: 1581268363}
   - component: {fileID: 1581268362}
   - component: {fileID: 1581268361}
-  - component: {fileID: 1581268360}
   - component: {fileID: 1581268359}
+  - component: {fileID: 1581268360}
   m_Layer: 0
   m_Name: Big Target
   m_TagString: Untagged
@@ -666,20 +666,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b1f78bfb55e2a4fa808a8e221f1c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &1581268360
-CapsuleCollider:
+--- !u!65 &1581268360
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581268358}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2.0000005, z: 1.0000005}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940699}
 --- !u!23 &1581268361
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -850,8 +849,8 @@ GameObject:
   - component: {fileID: 1760079958}
   - component: {fileID: 1760079957}
   - component: {fileID: 1760079956}
-  - component: {fileID: 1760079955}
   - component: {fileID: 1760079954}
+  - component: {fileID: 1760079955}
   m_Layer: 0
   m_Name: Small Target
   m_TagString: Untagged
@@ -871,20 +870,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5b6ed7a715e5a41b513503a6f32937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &1760079955
-CapsuleCollider:
+--- !u!65 &1760079955
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760079953}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2.0000005, z: 1.0000005}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940699}
 --- !u!23 &1760079956
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1085,8 +1083,8 @@ GameObject:
   - component: {fileID: 2004557352}
   - component: {fileID: 2004557351}
   - component: {fileID: 2004557350}
-  - component: {fileID: 2004557349}
   - component: {fileID: 2004557348}
+  - component: {fileID: 2004557349}
   m_Layer: 0
   m_Name: Medium Target
   m_TagString: Untagged
@@ -1106,20 +1104,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de49db095f0a2d04388cf8ec8405054e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &2004557349
-CapsuleCollider:
+--- !u!65 &2004557349
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004557347}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2.0000005, z: 1.0000005}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940699}
 --- !u!23 &2004557350
 MeshRenderer:
   m_ObjectHideFlags: 0

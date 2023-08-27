@@ -35,11 +35,12 @@ public class Cannon : MonoBehaviour
         Instantiate(ballPrefab, firePoint.transform.position, firePoint.transform.rotation);
     }
 
+
     private void CheckFire()
     {
         fireCountDown += Time.deltaTime;
 
-        if (fireCountDown >= 2 && Input.GetKey(KeyCode.Space))
+        if (fireCountDown >= 0.1f && Input.GetKey(KeyCode.Space))
         {
             Fire();
 
@@ -58,6 +59,15 @@ public class Cannon : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         
         cannonBase.transform.Rotate(20 * verticalInput * Time.deltaTime, 0, 0);
+
+        if (cannonBase.transform.rotation.eulerAngles.x < 330 && cannonBase.transform.rotation.eulerAngles.x > 320)
+        {
+            cannonBase.transform.Rotate(-20 * verticalInput * Time.deltaTime, 0, 0);
+        }
+        else if (cannonBase.transform.rotation.eulerAngles.x > 50 && cannonBase.transform.rotation.eulerAngles.x < 60)
+        {
+            cannonBase.transform.Rotate(-20 * verticalInput * Time.deltaTime, 0, 0);
+        }
     }
 
     private void HorizontalRotate()
