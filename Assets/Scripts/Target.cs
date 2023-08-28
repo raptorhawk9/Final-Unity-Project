@@ -7,7 +7,9 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     private bool isMovingRight;
-    private float moveSpeed;
+    private bool isMovingUp;
+    private float moveHorizontalSpeed;
+    private float moveVerticalSpeed;
     private float moveMin = 0.01f;
     private float moveMax = 0.07f;
     
@@ -25,21 +27,51 @@ public class Target : MonoBehaviour
 
     protected void Move()
     {
+        MoveHorizontal();
+        MoveVertical();
+    }
+
+    protected void MoveHorizontal()
+    {
         if (isMovingRight)
         {
-            transform.Translate(moveSpeed, 0, 0);
+            transform.Translate(moveHorizontalSpeed, 0, 0);
         }
         else
         {
-            transform.Translate(-moveSpeed, 0, 0);
+            transform.Translate(-moveHorizontalSpeed, 0, 0);
+        }
+    }
+
+    protected void MoveVertical()
+    {
+        if (isMovingUp)
+        {
+            transform.Translate(0, 0, moveVerticalSpeed);
+        }
+        else
+        {
+            transform.Translate(0, 0, -moveVerticalSpeed);
         }
     }
 
     private void StartMove()
     {
+        StartMoveHorizontal();
+        StartMoveVertical();
+    }
+
+    private void StartMoveHorizontal()
+    {
         isMovingRight = RandomBool();
 
-        moveSpeed = Random.Range(moveMin, moveMax);
+        moveHorizontalSpeed = Random.Range(moveMin, moveMax);
+    }
+    private void StartMoveVertical()
+    {
+        isMovingUp = RandomBool();
+
+        moveVerticalSpeed = Random.Range(moveMin, moveMax);
     }
 
     private bool RandomBool()
