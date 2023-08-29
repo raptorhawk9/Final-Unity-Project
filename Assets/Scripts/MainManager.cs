@@ -25,6 +25,6 @@ public class MainManager : MonoBehaviour
 
     private Vector3 randomSpawnPosition(float targetZ)
     {
-        return new Vector3(Random.Range(-170f, 170f), Random.Range(-700f, 700f), targetZ);
+        return new Vector3(Random.Range(-700f, 700f), Random.Range(-170f, 500f), targetZ);
     }
 }

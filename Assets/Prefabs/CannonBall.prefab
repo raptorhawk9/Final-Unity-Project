@@ -125,4 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c599641bceef9b41ae56c93a84c72ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonPower: 100
+  cannonPower: 300

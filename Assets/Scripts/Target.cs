@@ -23,6 +23,7 @@ public class Target : MonoBehaviour
     void Update()
     {
         Move(); //ABSTRACTION
+        DestroyOutOfBounds();
     }
 
     protected void Move()
@@ -89,6 +90,14 @@ public class Target : MonoBehaviour
         if (other.name == "CannonBall(Clone)")
         {
             GameManager.Instance.score += points;
+        }
+    }
+
+    void DestroyOutOfBounds()
+    {
+        if (transform.position.y < -170 || transform.position.y > 500 || transform.position.x > 700 || transform.position.x < -700)
+        {
+            Destroy(gameObject);
         }
     }
 }
