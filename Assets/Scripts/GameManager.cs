@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }  //ENCAPSULATION
 
     public int score = 0;
+
+    public int highScore;
     
     // Start is called before the first frame update
     void Awake()
@@ -24,6 +26,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (highScore > score)
+        {
+            highScore = score;
+        }
     }
 }
