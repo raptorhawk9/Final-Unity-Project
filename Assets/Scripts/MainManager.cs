@@ -4,6 +4,27 @@ using UnityEngine;
 
 public class MainManager : MonoBehaviour
 {
+    private float m_ammo;
+    public float ammo
+    {
+        get
+        {
+            return m_ammo;
+        }
+
+        set
+        {
+            if (value >= 0)
+            {
+                m_ammo = value;
+            }
+            else
+            {
+                Debug.Log("Negative value, can't do that. ");
+            }
+        }
+    }
+
     [SerializeField] private GameObject[] targetPrefabs;
 
     // Start is called before the first frame update

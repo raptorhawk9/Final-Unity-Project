@@ -70,7 +70,6 @@ public class Cannon : MonoBehaviour
             cannonBase.transform.Rotate(-20.1f * verticalInput * Time.deltaTime, 0, 0);
         }
     }
-
     private void HorizontalRotate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
