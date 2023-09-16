@@ -10,6 +10,7 @@ public class MainUIManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI ammoCountText;
+    public GameObject gameOverText;
 
     // Start is called before the first frame update
     void Awake()

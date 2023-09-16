@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
@@ -26,11 +27,36 @@ public class MainManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject[] targetPrefabs;
+    [SerializeField] private GameObject canvas;
 
     // Start is called before the first frame update
     void Awake()
     {
         InvokeRepeating("spawnRandomTarget", 5, 1f);
+
+        m_ammo = 300;
+    }
+
+    private void Update()
+    {
+        CheckAmmoGone();
+    }
+
+    private void CheckAmmoGone()
+    {
+        if (m_ammo <= 0)
+        {
+            canvas.GetComponent<MainUIManager>().gameOverText.SetActive(true);
+
+            StartCoroutine(ResetGame());
+        }
+    }
+
+    private IEnumerator ResetGame()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        SceneManager.LoadScene("Menu");
     }
 
     private void spawnRandomTarget()
