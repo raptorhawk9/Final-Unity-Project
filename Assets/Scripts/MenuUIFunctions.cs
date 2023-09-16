@@ -7,15 +7,10 @@ using System.IO;
 using UnityEditor;
 #endif
 
+[DefaultExecutionOrder(2000)]
 public class MenuUIFunctions: MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI highScoreText;
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        LoadData();
-    }
 
     void Awake()
     {
@@ -25,39 +20,7 @@ public class MenuUIFunctions: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private class SaveInfo
-    {
-        public int highscore;
-    }
-
-    private void SaveData()
-    {
-        SaveInfo data = new SaveInfo();
-
-        data.highscore = GameManager.Instance.highScore;
-
-        string json = JsonUtility.ToJson(data);
-        
-        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
-    }
-
-    private void LoadData()
-    {
-        SaveInfo data = new SaveInfo();
-
-        string path = Application.persistentDataPath + "/savefile.json";
-
-        if (File.Exists(path))
-        {
-            string json = File.ReadAllText(path);
-
-            data = JsonUtility.FromJson<SaveInfo>(json);
-
-            GameManager.Instance.highScore = data.highscore;
-        }
+        Debug.Log(GameManager.Instance.highScore);
     }
 
     public void StartGame()
@@ -67,7 +30,7 @@ public class MenuUIFunctions: MonoBehaviour
 
     public void ExitGame()
     {
-        SaveData();
+        GameManager.Instance.SaveData();
 
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
