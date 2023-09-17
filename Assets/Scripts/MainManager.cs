@@ -56,6 +56,11 @@ public class MainManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
 
+        BackToMenu();
+    }
+
+    public void BackToMenu()
+    {
         SceneManager.LoadScene("Menu");
     }
 

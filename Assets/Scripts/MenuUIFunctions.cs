@@ -20,7 +20,7 @@ public class MenuUIFunctions: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GameManager.Instance.highScore);
+        
     }
 
     public void StartGame()

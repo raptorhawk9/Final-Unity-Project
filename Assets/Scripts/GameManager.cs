@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
 
     public void SaveData()
     {
+        //For Testing Purposes \/
+
+        //highScore = 0;
+        
         SaveInfo data = new SaveInfo();
 
         data.highscore = highScore;
