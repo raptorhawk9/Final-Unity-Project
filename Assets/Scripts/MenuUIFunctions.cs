@@ -1,14 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.IO;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+[DefaultExecutionOrder(2000)]
 public class MenuUIFunctions: MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private TextMeshProUGUI highScoreText;
+
     void Awake()
     {
-        
+        highScoreText.SetText("HIGHSCORE: " + GameManager.Instance.highScore);
     }
 
     // Update is called once per frame
@@ -20,5 +26,16 @@ public class MenuUIFunctions: MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Main");
+    }
+
+    public void ExitGame()
+    {
+        GameManager.Instance.SaveData();
+
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
     }
 }

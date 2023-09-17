@@ -9,6 +9,7 @@ public class Cannon : MonoBehaviour
     private GameObject firePoint;
     private GameObject cannonBase;
     private GameObject cannon;
+    [SerializeField] private GameObject mainManager;
 
     private Vector3 offset = new Vector3(0f, 5.141f, -9.158f);
 
@@ -41,9 +42,11 @@ public class Cannon : MonoBehaviour
     {
         fireCountDown += Time.deltaTime;
 
-        if (fireCountDown >= 0.1f && Input.GetKey(KeyCode.Space))
+        if (fireCountDown >= 0.1f && Input.GetKey(KeyCode.Space) && mainManager.GetComponent<MainManager>().ammo > 0)
         {
             Fire();
+
+            mainManager.GetComponent<MainManager>().ammo--;
 
             fireCountDown = 0;
         }
@@ -70,7 +73,6 @@ public class Cannon : MonoBehaviour
             cannonBase.transform.Rotate(-20.1f * verticalInput * Time.deltaTime, 0, 0);
         }
     }
-
     private void HorizontalRotate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
